@@ -42,5 +42,9 @@ end architecture dataflow;
    ![Second Distribution Law](images/SecondLaw.png)
 
 2. Link to your public EDA Playground example:
-
-   [www.edaplayground.com/playgrounds/user/479419](https://www.edaplayground.com/playgrounds/user/479419)
+   
+   First Distribution Law:
+   [https://www.edaplayground.com/x/cKYL](https://www.edaplayground.com/x/cKYL)
+   
+   Second Distribution Law:
+   [https://www.edaplayground.com/x/ge5y](https://www.edaplayground.com/x/ge5y)
