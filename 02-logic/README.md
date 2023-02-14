@@ -48,4 +48,5 @@
 2. Link to your public EDA Playground example:
 
    [2-bit comparator](https://www.edaplayground.com/x/Ajca)
+   
    [4-bit comparator](https://www.edaplayground.com/x/kVHh)
