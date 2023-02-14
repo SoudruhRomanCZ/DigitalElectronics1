@@ -22,7 +22,7 @@
  ![SoP](images/SoP_greater_B.jpg)
  
  Pos:
- ![SoP](images/PoS_greater_A.jpg)
+ ![PoS](images/Pos_greater_A.jpg)
 ### 4-bit comparator
 
 1. Listing of VHDL stimulus process from testbench file (`testbench.vhd`) with at least one assert (use BCD codes of your student ID digits as input combinations). Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
