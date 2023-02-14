@@ -6,11 +6,11 @@
 
    Greater than:
 
-   ![K-maps](images/kmap_empty.png)
+   ![K-maps](images/kmap_B_greater.jpg)
 
    Less than:
 
-   ![K-maps](images/kmap_empty.png)
+   ![K-maps](images/kmap_A_greater.jpg)
 
 2. Mark the largest possible implicants in the K-map and according to them, write the equations of simplified SoP (Sum of the Products) form of the "greater than" function and simplified PoS (Product of the Sums) form of the "less than" function.
 
@@ -48,3 +48,4 @@
 2. Link to your public EDA Playground example:
 
    [2-bit comparator](https://www.edaplayground.com/x/Ajca)
+   [4-bit comparator](https://www.edaplayground.com/x/kVHh)
