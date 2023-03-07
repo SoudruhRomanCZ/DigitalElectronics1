@@ -1,16 +1,15 @@
-# Lab 5: Roman Křivánek
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
-### D & T Flip-flops
+entity jk_ff_rst is
+    Port ( clk : in STD_LOGIC;
+           rst : in STD_LOGIC;
+           j : in STD_LOGIC;
+           k : in STD_LOGIC;
+           q : out STD_LOGIC;
+           q_bar : out STD_LOGIC);
+end jk_ff_rst;
 
-1. Screenshot with simulated time waveforms. Try to simulate both D- and T-type flip-flops in a single testbench with a maximum duration of 200 ns, including reset. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
-
-   ![your figure](/images/D_T_flops_sim.png)
-
-### JK Flip-flop
-
-1. Listing of VHDL architecture for JK-type flip-flop. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
-
-```vhdl
 architecture behavioral of jk_ff_rst is
     -- It must use this local signal instead of output ports
     -- because "out" ports cannot be read within the architecture
@@ -40,10 +39,3 @@ begin
     q     <= sig_q;
     q_bar <= not sig_q;
 end architecture behavioral;
-```
-
-### Shift register
-
-1. Image of the shift register `top` level schematic. The image can be drawn on a computer or by hand. Always name all inputs, outputs, components and internal signals!
-
-   ![your figure]()
