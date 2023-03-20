@@ -4,12 +4,6 @@
 
 1. Screenshot with simulated time waveforms. Try to simulate both D- and T-type flip-flops in a single testbench with a maximum duration of 200 ns, including reset. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-<<<<<<< HEAD
-   ![your figure](/images/D_T_flops_sim.png)
-=======
-   ![your figure](images/d_t_simulation.png)
->>>>>>> fedbf4b686d38b05f56e9dadd3f59d1265447e61
-
 ### JK Flip-flop
 
 1. Listing of VHDL architecture for JK-type flip-flop. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
