@@ -33,7 +33,7 @@ p_cnt_up_down : process (clk) is
 
 2. Screenshot with simulated time waveforms. Test: (a) reset, (b) counter direction, (c) enable. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![your figure](images/)
+   ![your figure](images/4bit_counter_simulation.png)
 
 ### Two counters
 
