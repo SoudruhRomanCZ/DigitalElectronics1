@@ -1,0 +1,70 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a50ticsg324-1L",
+      "gen_directory": "../../../../projekt.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "None",
+      "tool_version": "2020.2"
+    },
+    "design_tree": {
+      "top_0": ""
+    },
+    "components": {
+      "top_0": {
+        "vlnv": "xilinx.com:module_ref:top:1.0",
+        "xci_name": "design_1_top_0_0",
+        "xci_path": "ip\\design_1_top_0_0_1\\design_1_top_0_0.xci",
+        "inst_hier_path": "top_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_tx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_tx_data_valid": {
+            "direction": "I"
+          },
+          "o_tx_serial": {
+            "direction": "O"
+          },
+          "o_tx_ready": {
+            "direction": "O"
+          },
+          "i_rx_serial": {
+            "direction": "I"
+          },
+          "o_rx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_rx_data_valid": {
+            "direction": "O"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Apr 11 14:06:02 2023" VIVADOVERSION="2020.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-50t:part0:1.2" DEVICE="7a50ti" NAME="design_1" PACKAGE="csg324" SPEEDGRADE="-1L"/>
+
+  <EXTERNALPORTS/>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/UART_RX_0" HWVERSION="1.0" INSTANCE="UART_RX_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UART_RX" VLNV="xilinx.com:module_ref:UART_RX:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="g_CLKS_PER_BIT" VALUE="115"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_UART_RX_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="sim_clk_gen_0_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sim_clk_gen_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_RX_Serial" SIGIS="undef" SIGNAME="top_0_o_tx_serial">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="o_tx_serial"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_RX_DV" SIGIS="undef" SIGNAME="UART_RX_0_o_RX_DV">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="i_tx_data_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_RX_Byte" RIGHT="0" SIGIS="undef" SIGNAME="UART_RX_0_o_RX_Byte">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="i_tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/UART_TX_0" HWVERSION="1.0" INSTANCE="UART_TX_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UART_TX" VLNV="xilinx.com:module_ref:UART_TX:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="g_CLKS_PER_BIT" VALUE="115"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_UART_TX_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="sim_clk_gen_0_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sim_clk_gen_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_TX_DV" SIGIS="undef" SIGNAME="top_0_o_tx_ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="o_tx_ready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_TX_Byte" RIGHT="0" SIGIS="undef" SIGNAME="top_0_o_rx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="o_rx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_TX_Active" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_TX_Serial" SIGIS="undef" SIGNAME="UART_TX_0_o_TX_Serial">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="i_rx_serial"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_TX_Done" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/sim_clk_gen_0" HWVERSION="1.0" INSTANCE="sim_clk_gen_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="sim_clk_gen" VLNV="xilinx.com:ip:sim_clk_gen:1.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=sim_clk_gen;v=v1_0;d=pb054-sim-clk-gen.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="CLOCK_TYPE" VALUE="Single_Ended"/>
+        <PARAMETER NAME="CLOCK_PERIOD" VALUE="10"/>
+        <PARAMETER NAME="INITIAL_RESET_CLOCK_CYCLES" VALUE="100"/>
+        <PARAMETER NAME="RESET_POLARITY" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_sim_clk_gen_0_0"/>
+        <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk" SIGIS="clk" SIGNAME="sim_clk_gen_0_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_RX_0" PORT="i_Clk"/>
+            <CONNECTION INSTANCE="top_0" PORT="clk"/>
+            <CONNECTION INSTANCE="UART_TX_0" PORT="i_Clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sync_rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="sim_clk_gen_0_sync_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="top_0" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/top_0" HWVERSION="1.0" INSTANCE="top_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="top" VLNV="xilinx.com:module_ref:top:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_top_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="i_tx_data" RIGHT="0" SIGIS="undef" SIGNAME="UART_RX_0_o_RX_Byte">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_RX_0" PORT="o_RX_Byte"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_tx_data_valid" SIGIS="undef" SIGNAME="UART_RX_0_o_RX_DV">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_RX_0" PORT="o_RX_DV"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_tx_serial" SIGIS="undef" SIGNAME="top_0_o_tx_serial">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_RX_0" PORT="i_RX_Serial"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_tx_ready" SIGIS="undef" SIGNAME="top_0_o_tx_ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_TX_0" PORT="i_TX_DV"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_rx_serial" SIGIS="undef" SIGNAME="UART_TX_0_o_TX_Serial">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_TX_0" PORT="o_TX_Serial"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_rx_data" RIGHT="0" SIGIS="undef" SIGNAME="top_0_o_rx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UART_TX_0" PORT="i_TX_Byte"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_rx_data_valid" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="sim_clk_gen_0_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sim_clk_gen_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="sim_clk_gen_0_sync_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sim_clk_gen_0" PORT="sync_rst"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>
