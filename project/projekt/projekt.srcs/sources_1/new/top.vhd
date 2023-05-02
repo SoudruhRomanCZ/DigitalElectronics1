@@ -43,7 +43,9 @@ entity top is
            CG : out STD_LOGIC;
            BTNC : in STD_LOGIC;
            AN : out STD_LOGIC_VECTOR (7 downto 0);
-           LEDS : out STD_LOGIC_VECTOR(11 downto 0));
+           LED : out STD_LOGIC_VECTOR(7 downto 0);
+           JB1 : out std_logic; 
+           JB2 : in std_logic );
            
 end top;
 
@@ -54,10 +56,17 @@ end top;
 architecture behavioral of top is
 
   -- 4-bit counter @ 250 ms
-    signal sig_en_250ms : std_logic;                    --! Clock enable signal for Counter0
+
+    signal sig_en_1s : std_logic;                    --! Clock enable signal for Counter0
     signal sig_cnt_4bit : std_logic_vector(3 downto 0); --! Counter0
-    signal sig_en_10ms : std_logic;  
-    signal sig_cnt_12bit : std_logic_vector(11 downto 0);
+    signal s_Clk       : std_logic;
+    signal s_TX_DV     : std_logic;
+    signal s_TX_Byte   : std_logic_vector(7 downto 0);
+    signal s_TX_Active : std_logic;
+    signal s_TX_Done   : std_logic;
+    signal s_RX_DV     : std_logic;
+    signal s_RX_Byte   : std_logic_vector(7 downto 0);
+       
 begin
 
   --------------------------------------------------------
@@ -65,47 +74,26 @@ begin
   --------------------------------------------------------
   clk_en0 : entity work.clock_enable
       generic map(
-          g_MAX => 25000000
+          g_MAX => 100000000
       )
       port map(
           clk => CLK100MHZ,
           rst => BTNC,
-          ce  => sig_en_250ms
+          ce  => sig_en_1s
       );
-      
-  clk_en1 : entity work.clock_enable
-      generic map(
-          g_MAX => 10000000
-      )
-      port map(
-          clk => CLK100MHZ,
-          rst => BTNC,
-          ce  => sig_en_10ms
-      );
+
   --------------------------------------------------------
   -- Instance (copy) of cnt_up_down entity
   --------------------------------------------------------
-  bin_cnt0 : entity work.cnt_up_down
+  bin_cnt : entity work.cnt_up_down
      generic map(
           g_CNT_WIDTH => 4
       )
       port map(
           clk => CLK100MHZ,
           rst => BTNC,
-          en => sig_en_250ms,
-          cnt_up => SW,
-          cnt => sig_cnt_4bit
-      );
-  bin_cnt1 : entity work.cnt_up_down
-     generic map(
-          g_CNT_WIDTH => 4
-      )
-      port map(
-          clk => CLK100MHZ,
-          rst => BTNC,
-          en => sig_en_10ms,
-          cnt_up => SW,
-          cnt2 => sig_cnt_12bit
+          cnt => sig_cnt_4bit,
+          en => sig_en_1s
       );
   --------------------------------------------------------
   -- Instance (copy) of hex_7seg entity
@@ -123,10 +111,37 @@ begin
           seg(0) => CG
       );
 
+tran: entity work.UART_TX
+    generic map(
+    g_clks_per_bit => 869
+    )
+    port map(
+    i_Clk   =>  s_Clk  , 
+    i_TX_DV  =>  s_TX_DV ,
+    i_TX_Byte   => s_TX_Byte ,
+    o_TX_Active  => open ,
+    o_TX_Serial  => JB1,
+    o_TX_Done    => s_TX_Done
+    );
+    
+    rec: entity work.UART_RX
+    generic map(
+    g_CLKS_PER_BIT => 869
+    )
+    port map(
+    i_Clk   =>  s_Clk  , 
+    o_RX_DV  =>  s_RX_DV ,
+    o_RX_Byte   => s_RX_Byte ,
+    i_RX_Serial  => JB2
+    );
+
+
   --------------------------------------------------------
   -- Other settings
   --------------------------------------------------------
   -- Connect one common anode to 3.3V
   AN <= b"1111_1110";
-  LEDS <= sig_cnt_12bit;
+  LED <= s_TX_Byte;
+  JB1 <=s_TX_DV;
+ 
 end architecture behavioral;

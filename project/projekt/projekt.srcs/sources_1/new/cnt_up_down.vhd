@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity cnt_up_down is
     generic (
-        g_CNT_WIDTH : natural := 6  -- default number of counter bits
+        g_CNT_WIDTH : natural := 4  -- default number of counter bits
     );
     port (
         clk : in std_logic;  -- main clock
