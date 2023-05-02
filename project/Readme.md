@@ -25,12 +25,12 @@ Jako hardware desku používáme Nexys A7-50T. K zobrazení času používáme 6
 [UART-receiver](project/projekt/sources_1/new/receiver.vhd)
 https://www.edaplayground.com/x/mKEV - simulace UART-receiveru
 
-[receiver](images/receiver.png)
+![receiver](images/UART-receiver.png)
 
 [UART-transmitter](project/projekt/sources_1/new/transmitter.vhd)
 https://www.edaplayground.com/x/TS9m -simulace UART-transmitteru
 
-[transmitter](images/transmitter.png)
+![transmitter](images/UART-transmitter.png)
 
 
 #### Vedlejší komponenty:
