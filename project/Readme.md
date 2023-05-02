@@ -17,24 +17,30 @@ Kvůli neočekávaným chybám v kódu UART přijímače a vysílače, jsme neby
 Jako hardware desku používáme Nexys A7-50T. K zobrazení času používáme 6 7-segmentových displejů. K odesílání dat pomocí UART používáme BTNC, což je prostřední tlačítko na vývojové desce. K zobrazení přijatých dat používáme LED0 až LED8. K přepínání rychlosti přenosu používáme SW0 a SW1, což nám dělá 4 různé možnosti.
 
 ### Component(s) simulation
-Hlavní komponenty:
-top.vhdl(project/projekt/sources_1/new/top.vhd) - propojení všech komponentů
 
-UART-receiver(project/projekt/sources_1/new/receiver.vhd)
+#### Hlavní komponenty:
+
+[top.vhdl](project/projekt/sources_1/new/top.vhd) - propojení všech komponentů
+
+[UART-receiver](project/projekt/sources_1/new/receiver.vhd)
 https://www.edaplayground.com/x/mKEV - simulace UART-receiveru
 
 [receiver](images/receiver.png)
 
-UART-transmitter(project/projekt/sources_1/new/transmitter.vhd)
+[UART-transmitter](project/projekt/sources_1/new/transmitter.vhd)
 https://www.edaplayground.com/x/TS9m -simulace UART-transmitteru
 
 [transmitter](images/transmitter.png)
 
 
-Vedlejší komponenty:
-Clock_enabled(project/projekt/sources_1/new/clock_enabled.vhd)
-Counter(project/projekt/sources_1/new/cnt_up_down.vhd)
-7-segmentový driver(project/projekt/sources_1/new/hex_7seg.vhd)
+#### Vedlejší komponenty:
+
+[Clock_enabled](project/projekt/sources_1/new/clock_enabled.vhd)
+
+[Counter](project/projekt/sources_1/new/cnt_up_down.vhd)
+
+[7-segmentový driver](project/projekt/sources_1/new/hex_7seg.vhd)
+
 ## Instructions
 
 Teoreticky by to mělo fungovat, ale prakticky je to celkem daleko od funkčního projektu. Aby to fungovalo, muselo by se upravit celkové top.vhd jelikož ještě není implementované tlačítko na posílání bitů. Tudíž by se muselo upravit i transmitter.vhd, aby reagoval na zmáčknutí tlačítka. Dále nemáme propojení mezi daty čítače a vstup na trasmitter. Receiver ještě není plně otestová, a chybí mu implementování zobrazení na LEDky. Jediné funkční části jsou čítač, clock_enable a 7-segmentový driver, které jsme dělali v předešlých hodinách.
